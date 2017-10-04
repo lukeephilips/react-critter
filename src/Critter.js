@@ -1,5 +1,6 @@
 import React from 'react'
 function Critter(props) {
+  const avatar = require('../public/critterImages/' + props.avatar + '.png');
   function handleFeed(){
     props.feedCritter(props.id, "feed");
   }
@@ -26,6 +27,7 @@ function Critter(props) {
   return (
     <div className="critter col-xs-2">
       <h3>{props.name}</h3>
+      <img src={avatar} height="75px"/>
       {dedYet()}
     </div>
   )

@@ -1,4 +1,5 @@
 import React from "react"
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap"
 class CreateCritter extends React.Component {
   constructor(props) {
     super(props);
@@ -6,7 +7,7 @@ class CreateCritter extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.props.handleCreate(this.input.value);
+    this.props.handleCreate(this.input.value, this.select.value);
     this.input.value = ""
   }
   render(){
@@ -17,9 +18,19 @@ class CreateCritter extends React.Component {
               <input className="form-control" type="text" placeholder="Create a new critter"
                 ref={(input) => this.input = input} />
             <span className="input-group-btn">
-                <button className="btn btn-success" onClick={this.handleSubmit}>Create</button>
+                <Button className="btn btn-success" onClick={this.handleSubmit}>Create</Button>
             </span>
           </div>
+          <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Pick a species</ControlLabel>
+            <FormControl componentClass="select" inputRef={ref => { this.select = ref; }}>
+              <option value="blackCat">Mittins</option>
+              <option value="chicken">Peeps</option>
+              <option value="frog">Hoppy</option>
+              <option value="octopus">Floppy</option>
+              <option value="shark">Finn</option>
+            </FormControl>
+          </FormGroup>
         </div>
       </div>
     )

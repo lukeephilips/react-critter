@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
     this.handleCreate = this.handleCreate.bind(this);
     this.feedCritter = this.feedCritter.bind(this);
-
     this.state = {
       masterCritterList: [],
     }
@@ -30,8 +29,8 @@ class App extends Component {
     clearInterval(this.timeSinceOpenedChecker);
   }
 
-  handleCreate(name) {
-    let newCritter = new Critter(name);
+  handleCreate(name, avatar) {
+    let newCritter = new Critter(name, avatar);
     let newCritterList = this.state.masterCritterList.slice();
     newCritterList.push(newCritter);
     this.setState({masterCritterList: newCritterList})
