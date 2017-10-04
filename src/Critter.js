@@ -17,12 +17,14 @@ function Critter(props) {
       )
     } else {
       return(
-        <p>He ded.</p>
+        <div>
+          <p>He ded.</p>
+        </div>
       )
     }
   }
   return (
-    <div>
+    <div className="critter col-xs-2">
       <h3>{props.name}</h3>
       {dedYet()}
     </div>

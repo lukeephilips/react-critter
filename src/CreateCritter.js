@@ -6,16 +6,21 @@ class CreateCritter extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log("ding dong")
     this.props.handleCreate(this.input.value);
     this.input.value = ""
   }
   render(){
     return (
-      <div>
-          <input className="form-control" type="text" placeholder="Enter a name"
-          ref={(input) => this.input = input} />
-          <button onClick={this.handleSubmit}>Create</button>
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <div className="input-group">
+              <input className="form-control" type="text" placeholder="Create a new critter"
+                ref={(input) => this.input = input} />
+            <span className="input-group-btn">
+                <button className="btn btn-success" onClick={this.handleSubmit}>Create</button>
+            </span>
+          </div>
+        </div>
       </div>
     )
   }

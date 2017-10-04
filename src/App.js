@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import bulldog from './bulldog.png';
 import './App.css';
 import Critter from './models/Critter'
 import CritterList from './CritterList'
@@ -39,7 +39,11 @@ class App extends Component {
   feedCritter(i, interaction){
     let newCritters = this.state.masterCritterList.slice();
     if (interaction === "feed") {
-      newCritters[i].hunger -= 5;
+      if (newCritters[i].hunger >= 5){
+        newCritters[i].hunger -= 5;
+      } else {
+        newCritters[i].hunger = 0;
+      }
     } else if (interaction === "rest") {
       newCritters[i].energy += 5;
     }
@@ -49,10 +53,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={bulldog} className="App-logo" alt="logo" />
           <h1 className="App-title">Critter Pound</h1>
+          <CreateCritter handleCreate = {this.handleCreate}></CreateCritter>
         </header>
-        <CreateCritter handleCreate = {this.handleCreate}></CreateCritter>
         <CritterList masterCritterList={this.state.masterCritterList} feedCritter={this.feedCritter}></CritterList>
       </div>
     );
