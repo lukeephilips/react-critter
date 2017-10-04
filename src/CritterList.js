@@ -4,7 +4,8 @@ function CritterList(props) {
   return (
     <div>
       {props.masterCritterList.map((critter,i) =>
-        <Critter name={critter.name} age={critter.age} hunger={critter.hunger} energy={critter.energy} key={i}/>
+        <Critter name={critter.name} age={critter.age} hunger={critter.hunger} energy={critter.energy} key={i}
+        feedCritter={props.feedCritter} id={i}/>
       )}
     </div>
   )
